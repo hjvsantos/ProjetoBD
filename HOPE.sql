@@ -45,10 +45,9 @@ create table doacao_alimento(
 	id_alimento varchar(10),
     validade date,
     data_doacao_alimento datetime, 
-    tipo_almento varchar(13),
+    tipo_almento enum('NÃO PERECÍVEL', 'PERECÍVEL'),
     constraint doacao_alimento_pk primary key(id_alimento),
     constraint doacao_alimento_fk foreign key (id_alimento) references doacao(id_doacao),
-    constraint doacao_alimento_tipo_alimento_ck check(tipo_alimento in ('NÃO PERECIVEL', 'PERECIVEL')),
     constraint data_doacao_alimento_fk foreign key (data_doacao_alimento) references doacao(data_doacao)
     
 ); 
@@ -64,11 +63,10 @@ create table doacao_vestimenta(
 
 create table doacao_higiene(
 	id_higiene varchar(10),
-    tipo_higiene varchar(7),
+    tipo_higiene enum('LIMPEZA', 'PESSOAL'),
     data_doacao_higiene datetime,
     constraint doacao_higiene_pk primary key(id_higiene),
     constraint doacao_higiene_fk foreign key (id_higiene) references doacao(id_doacao),
-    constraint doacao_higiene_tipo_higiene_ck check(tipo_higiene in ('LIMPEZA', 'PESSOAL')),
     constraint data_doacao_higiene_fk foreign key (data_doacao_higiene) references doacao(data_doacao)
 );
 
