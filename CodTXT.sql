@@ -1,4 +1,4 @@
-create database HOPEatualizado;
+﻿create database HOPEatualizado;
 use HOPEatualizado;
 
 create table instituicao(
@@ -286,4 +286,27 @@ create table cartao(
     numero varchar(20),
     id_transacao varhcar(10),
     constraint cartao_pk primary key 
+);
+
+create table donativo_financeiro(
+    id_financeiro varchar(4),
+    data_doacao datetime,
+    id_instituicao_doadora varchar(10),
+    constraint id_instituicao_doadora_fk foreign key (id_instituicao_doadora) references instituicao(instituicao_pk)
+    
+);
+
+create table comprovante_doacao(
+	num_doc varchar(10),
+    descricao varchar(30),
+    arquivo_doc varchar(10),
+    constraint num_doc_pk primary key (num_doc)
+);
+
+create table doc_protocolo(
+	num_protocolo varchar (10),
+    arquivo varchar(10),
+    descricao varchar(30),
+    constraint num_protocolo_pk primary key (num_protocolo)
+
 );
