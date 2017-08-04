@@ -327,6 +327,18 @@ create table cartao(
 );
 
 
+-- Isso aqui é aleatório, que eu não entendi o motivo de ter no projeto, mas mandaram colocar, então tô colocando.
+create table calendario(
+	num_seq varchar(10) not null unique,
+    data_d datetime not null,
+    fim_de_semana datetime not null,
+    feriado datetime not null,
+    todo_list varchar(500),
+    lembrete_do_dia varchar(200),
+    observacao varchar(200),
+    constraint calendario_pk primary key (num_seq)
+);
+
 
 
 
