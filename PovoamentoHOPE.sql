@@ -70,23 +70,43 @@ INSERT INTO administrador (CPF,nome,data_nascimento,data_inicio,data_fim) VALUES
 #INSERINDO ESTOQUE
 
 INSERT INTO estoque (codigo,descricao,data_ultima_entrada,cod_administrador) VALUES (ESTK00,'ESTOQUE 1','04/08/2017','00000000000');
+INSERT INTO estoque (codigo, descricao, data_ultima_entrada, cod_administrador) VALUES (ESTK01,'ESTOQUE 2','02/08/2017','00000000034');
+INSERT INTO estoque (codigo, descricao, data_ultima_entrada, cod_administrador) VALUES (ESTK02,'ESTOQUE 3','03/08/2017','00000000012');
 
 #INSERINDO PRODUTOS_ESTOQUE
 
-INSERT INTO item_produto_estoque () VALUES ();
+INSERT INTO item_produto_estoque (qte_minima, data_entrada, data_validade, qte_atual, num_seq, cod_prod, cod_estoque) VALUES (5.0,'02/08/2017','30/11/2017', 70.0, 00001, 'CP000', '00000000012');
+INSERT INTO item_produto_estoque (qte_minima, data_entrada, data_validade, qte_atual, num_seq, cod_prod, cod_estoque) VALUES (1.0,'01/08/2017','30/12/2017', 6.0, 00002, 'CP009', '00000000012');
+INSERT INTO item_produto_estoque (qte_minima, data_entrada, data_validade, qte_atual, num_seq, cod_prod, cod_estoque) VALUES (1.0,'12/07/2017','01/01/2018', 23.0, 00003, 'CP004', '00000000034');
+INSERT INTO item_produto_estoque (qte_minima, data_entrada, data_validade, qte_atual, num_seq, cod_prod, cod_estoque) VALUES (1.0,'01/07/2017','10/10/2017', 14.0, 00004, 'CP003', '00000000000');
 
 #INSERINDO ENTREGA
 
-INSERT INTO entrega () VALUES ();
+INSERT INTO entrega (id_entrega, data_entrega, status_entrega, hora_agendada, data_agendada, obs, id_voluntario) VALUES ('EE0002', '20/07/2017', 'ENTREGUE', '12:30:00', '20/07/2017', ' ', );
+INSERT INTO entrega (id_entrega, data_entrega, status_entrega, hora_agendada, data_agendada, obs, id_voluntario) VALUES ('EE0001', '01/06/2017', 'ENTREGUE', '10:30:00', '01/06/2017', ' ', );
+INSERT INTO entrega (id_entrega, data_entrega, status_entrega, hora_agendada, data_agendada, obs, id_voluntario) VALUES ('EE0003', '13/05/2017', 'ENTREGUE', '11:00:00', '13/05/2017', ' ', );
+INSERT INTO entrega (id_entrega, data_entrega, status_entrega, hora_agendada, data_agendada, obs, id_voluntario) VALUES ('EE0005', '01/08/2017', 'ENTREGUE', '11:15:00', '01/08/2017', ' ', );
+INSERT INTO entrega (id_entrega, data_entrega, status_entrega, hora_agendada, data_agendada, obs, id_voluntario) VALUES ('EE0004', '22/06/2017', 'ENTREGUE', '09:30:00', '22/06/2017', ' ', );
 
 #INSERINDO DOADORA
 
-INSERT INTO doadora () VALUES ();
+INSERT INTO doadora (data_ultima_doacao) VALUES ('07/05/2017');
+INSERT INTO doadora (data_ultima_doacao) VALUES ('01/08/2017');
+INSERT INTO doadora (data_ultima_doacao) VALUES ('04/07/2017');
+INSERT INTO doadora (data_ultima_doacao) VALUES ('22/06/2017');
 
 #INSERINDO RECEPTORA
 
+INSERT INTO receptora (data_ultima_recepcao, cod_entrega) VALUES ('20/07/2017', 'EE0002');
+INSERT INTO receptora (data_ultima_recepcao, cod_entrega) VALUES ('22/06/2017', 'EE0004');
+INSERT INTO receptora (data_ultima_recepcao, cod_entrega) VALUES ('13/05/2017', 'EE0003');
 
 #INSERINDO ITENS_ENTREGA
+
+INSERT INTO item_produto_entrega(num_seq, qte_entregue, cod_entrega, cod_produto) VALUES('IE00001', 7.0, 'EE0003', 'CP000');
+INSERT INTO item_produto_entrega(num_seq, qte_entregue, cod_entrega, cod_produto) VALUES('IE00002', 5.0, 'EE0001', 'CP001');
+INSERT INTO item_produto_entrega(num_seq, qte_entregue, cod_entrega, cod_produto) VALUES('IE00003', 3.0, 'EE0005', 'CP000');
+INSERT INTO item_produto_entrega(num_seq, qte_entregue, cod_entrega, cod_produto) VALUES('IE00004', 2.0, 'EE0004', 'CP006');
 
 #INSERINDO ENDERECO
 
@@ -102,7 +122,18 @@ INSERT INTO endereco (num_seq,nome,bairro,cidade,estado,CEP,tipo_logradouro) VAL
 
 #INSERINDO PESSOA_FISICA
 
+INSERT INTO pesssoa_fisica (CPF, primeiro_nome, meio_nome, ultimo_nome, anonimato, data_nasc, cep_endereco) VALUES ('03093322819', 'Luiz', 'Antonio', 'da Silva', 'FALSE', '13/05/1982', 'END0006');
+INSERT INTO pesssoa_fisica (CPF, primeiro_nome, meio_nome, ultimo_nome, anonimato, data_nasc, cep_endereco) VALUES ('09483201923', 'Anna', 'Carmen', 'da Silva', 'FALSE', '22/01/1966', 'END0004');
+INSERT INTO pesssoa_fisica (CPF, primeiro_nome, meio_nome, ultimo_nome, anonimato, data_nasc, cep_endereco) VALUES ('83038574929', 'Claudio', 'José', 'Siqueira', 'FALSE', '03/08/1989', 'END0002');
+INSERT INTO pesssoa_fisica (CPF, primeiro_nome, meio_nome, ultimo_nome, anonimato, data_nasc, cep_endereco) VALUES ('00392787759', 'Marcos', 'Antonio', 'de Amorim', 'FALSE', '22/07/1986', 'END0007');
+INSERT INTO pesssoa_fisica (CPF, primeiro_nome, meio_nome, ultimo_nome, anonimato, data_nasc, cep_endereco) VALUES ('11395873990', 'Jéssica', 'Andrade', 'da Silva', 'FALSE', '01/12/1990', 'END0008');
+INSERT INTO pesssoa_fisica (CPF, primeiro_nome, meio_nome, ultimo_nome, anonimato, data_nasc, cep_endereco) VALUES ('84920284758', 'Romeu', 'Carlos', 'Pereira', 'FALSE', '20/01/1971', 'END0001');
+
 #INSERINDO CATEGORIA_PRODUTO
+
+INSERT INTO categoria_prod(id, obs, descricao, caracteristicas) VALUES('C0001',' ','Vestimenta','Roupas e acessórios');
+INSERT INTO categoria_prod(id, obs, descricao, caracteristicas) VALUES('C0002',' ','Alimento','Alimentos não pereciveis');
+INSERT INTO categoria_prod(id, obs, descricao, caracteristicas) VALUES('C0003',' ','Higiene','Produtos de higiene pessoal e limpeza');
 
 #INSERINDO LOCALIZAÇÃO_CATEGORIA
 
